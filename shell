@@ -1,0 +1,44 @@
+ls //list files and directories
+cd //change the directories
+mkdir //create directories
+rm  // remove file or directories
+ps //display running process
+grep // search for text in file
+#!/bin/bash
+echo "Hello, World!"
+export PATH=$PATH:/usr/local/bin
+//input output redirection
+ls > filelist.txt  # Redirect output to a file
+grep "error" log.txt  # Search for "error" in a file
+#pipe and filter
+ls -l | grep ".txt"  # List files and filter by .txt extension&: Run a command in the background.
+
+jobs #List background jobs.
+
+fg #Bring a background job to the foreground.
+
+kill # Terminate a process.
+#file permition
+chmod 755 script.sh  # Set execute permissions
+#customizing the shell
+alias ll='ls -la'  # Create an alias
+#!/bin/bash
+
+# Variables
+BACKUP_DIR="/backup"
+SOURCE_DIR="/home/user/documents"
+DATE=$(date +%Y-%m-%d)
+
+# Create backup directory
+mkdir -p $BACKUP_DIR/$DATE
+
+# Copy files
+cp -r $SOURCE_DIR $BACKUP_DIR/$DATE
+
+# Compress backup
+tar -czf $BACKUP_DIR/$DATE.tar.gz $BACKUP_DIR/$DATE
+
+# Clean up
+rm -rf $BACKUP_DIR/$DATE
+
+echo "Backup completed: $BACKUP_DIR/$DATE.tar.gz"
